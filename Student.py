@@ -41,3 +41,6 @@ class Student:
         self.name = name
         self.group = group
 
+
+    def getData(self):
+        return [self.id, self.name, self.group]
