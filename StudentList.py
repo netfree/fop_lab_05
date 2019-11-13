@@ -5,6 +5,15 @@ class StudentList():
     
     __l = []
 
+    __bk = []
+
+    def makeBackup(self):
+        self.__bk.append(copy.deepcopy(self.__l))
+
+    def restoreBackup(self):
+        if len(self.__bk):
+            self.__l[:] = self.__bk[-1][:]
+
     def __init__(self):
         pass
 
@@ -20,7 +29,6 @@ class StudentList():
         if self.valid_id(new_student.id):
             self.__l.append(new_student)
         else:
-            print(new_student.id)
             raise Exception("id taken")
 
     def deleteByGroup(self, group):

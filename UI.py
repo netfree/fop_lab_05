@@ -26,13 +26,23 @@ class UI:
             try:
                 
                 if action == 1:
-                    id = input("id: ")
+                    id = int(input("id: "))
                     name = input("name: ")
-                    group = input("group: ")
+                    group = int(input("group: "))
+                    self.s_srv.makeBackup()
                     self.s_srv.add(id, name, group)
 
                 elif action == 2:
                     self.printList()
+
+                elif action == 3:
+                    group = int(input("group:"))
+                    self.s_srv.makeBackup()
+                    self.s_srv.deleteByGroup(group)
+                elif action == 4:
+                    self.s_srv.restoreBackup()
+
+                
             except Exception as ex:
                 print(str(ex))
 
